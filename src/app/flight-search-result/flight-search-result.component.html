@@ -1,0 +1,58 @@
+<div class="flight-search-result">
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <div class="flight-filtering">
+        <mat-list>
+          <mat-list-item>
+            <h4 mat-line> Stops </h4>
+            <mat-checkbox mat-line class="example-margin" [checked]="true" (click)="onNonStop()">Direct Flights
+            </mat-checkbox>
+            <mat-checkbox mat-line class="example-margin" [checked]="true" (click)="onOneStop()">Connection Flights
+            </mat-checkbox>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <h4 mat-line>Refine Flight Search</h4>
+            <mat-slider mat-line thumbLabel [(ngModel)]="filterPrice" [displayWith]="formatLabel" [min]="minPrice"
+              [max]="maxPrice"></mat-slider>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <mat-checkbox mat-line class="example-margin" [checked]="true" (click)="onLengthSort()">Length Flights
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p><button mat-button (click)="sidenav.toggle()">
+          <mat-icon>
+            filter_list
+          </mat-icon>
+        </button></p>
+      <div *ngFor="let flight of flights | sortFlightLength : isLengthSort">
+        <div class="flights"
+          *ngIf="(isNonStop == true && flight.length == 1) || (isOneStop == true && flight.length > 1)">
+          <mat-card class="plane-card" *ngFor="let plane of flight | filterPrice: filterPrice">
+              <div class="depart">
+                <mat-icon>flight_takeoff</mat-icon>
+                <mat-label>depart: {{ plane.depart | date:'dd-MM-yyyy' }}</mat-label>
+              <div class="lengthOfFlight">Flight Time : {{  plane.lengthOfFlight | date: 'h:mm'}} </div>
+
+              <div class="legInfo_stopsContainer">
+                <span>{{ plane.from  }}</span>
+                <div class="legInfo_stopLine">
+                  <span class="legInfo_stopDot" *ngIf="flight.length >= 2"></span>
+                  <img class="ion-flight" src="assets/image/flight.png">
+                </div>
+                <span class="destination">{{ plane.destination  }}</span>
+              </div>
+            </div>
+              <div class="price"> {{  plane.price | currency}}</div>
+          </mat-card>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

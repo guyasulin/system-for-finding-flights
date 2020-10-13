@@ -1,0 +1,114 @@
+.flight-search-result {
+
+  .container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .flight-filtering {
+    mat-slider {
+      width: 300px;
+    }
+  }
+
+  mat-sidenav-content {
+    width: 100%;
+    height: 100%;
+    background-color: #042759;
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-size: cover;
+    background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--ZUYKHgez--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/vbsrcaj7sj3anw492uzy.jpg");
+    position: relative;
+
+    .flights {
+      margin: 20px;
+      width: 65%;
+      display: flex;
+      
+      .plane-card {
+        flex:1;
+
+        .lengthOfFlight {
+          position: relative;
+          left: 17%;
+          display: inline-block;
+        }
+
+        .price {
+          text-align: end;
+        }
+
+        .legInfo_stopsContainer {
+          padding: 0 .375rem;
+          width: 45%;
+          display: flex;
+          
+          .destination {
+            position: relative;
+            left: 40px;
+          }
+  
+          .legInfo_stopLine {
+            position: relative;
+            display: block;
+            top: 3px;
+            left: 5px;
+            width: 90%;
+            height: .125rem;
+            margin: .375rem auto;
+            padding: 0;
+            border-radius: .375rem;
+            background-color: #68697f;
+            line-height: 0;
+            text-align: center;
+  
+            .ion-flight {
+              height: 25px;
+              position: absolute;
+              top: -10px;
+              left: 100%;
+              display: block;
+            }
+       
+            .legInfo_stopDot {
+              position: relative;
+              top: -.125rem;
+              display: inline-block;
+              width: .375rem;
+              height: .375rem;
+              margin: 0 4%;
+              border-radius: .375rem;
+              background-color: #d1435b;
+              background-image: none;
+              line-height: 0;
+              box-shadow: 0 0 0 0.125rem #fff;
+              zoom: 1;
+            }
+          }
+        }
+  
+      }
+    }
+
+ 
+  }
+
+}
+
+::ng-deep {
+
+  .mat-slider-thumb-label,
+  .mat-slider-thumb,
+  .mat-slider-track-fill,
+  .mat-checkbox-background {
+    background-color: #3f51b5 !important;
+  }
+  
+  .mat-slider-horizontal .mat-slider-thumb-label {
+    top: -10px !important;
+  }
+}

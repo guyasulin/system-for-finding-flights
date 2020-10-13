@@ -1,0 +1,48 @@
+<div class="flight-search">
+  <div class="form">
+    <form #f="ngForm" (ngSubmit)="searchFlights(f.value)">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>From:</mat-label>
+        <input type="text" placeholder="From:" matInput name="from" [(ngModel)]="selectedFlight.from"
+          [matAutocomplete]="autoFrom">
+        <mat-autocomplete autoActiveFirstOption #autoFrom="matAutocomplete">
+          <mat-option *ngFor="let from of flights | uniqueFrom" [value]="from">
+            {{ from }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>TO:</mat-label>
+        <input type="text" placeholder="TO:" matInput [(ngModel)]="selectedFlight.destination" name="destination"
+          [matAutocomplete]="autoDestination">
+        <mat-autocomplete autoActiveFirstOption #autoDestination="matAutocomplete">
+          <mat-option *ngFor="let destination of flights | uniqueDest" [value]="destination">
+            {{ destination }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div class="date">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>DEPARTURE:</mat-label>
+          <input matInput [matDatepicker]="Fromdate" name="depart" [(ngModel)]="selectedFlight.depart">
+          <mat-datepicker-toggle matSuffix [for]="Fromdate"></mat-datepicker-toggle>
+          <mat-datepicker #Fromdate></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>ARRIVAL:</mat-label>
+          <input matInput [matDatepicker]="ToDate" name="return" [(ngModel)]="return">
+          <mat-datepicker-toggle matSuffix [for]="ToDate"></mat-datepicker-toggle>
+          <mat-datepicker #ToDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="btn-search">
+        <button type="submit" mat-raised-button color="primary" class="full-width">Search Flight</button>
+      </div>
+    </form>
+  </div>
+
+</div>
