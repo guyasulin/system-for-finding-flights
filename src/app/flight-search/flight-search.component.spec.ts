@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlightSearchComponent } from './flight-search.component';
+import { FormsModule } from '@angular/forms';
 
 
 describe('FlightSearchComponent', () => {
@@ -16,10 +17,10 @@ describe('FlightSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FlightSearchComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });
