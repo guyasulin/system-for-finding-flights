@@ -1,9 +1,7 @@
 import { Flight } from './../models/flight';
 import { FlightsService } from '../services/flights.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { FormControl, NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {  NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({

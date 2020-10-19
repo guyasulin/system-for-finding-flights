@@ -8,10 +8,10 @@ describe('FlightsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(FlightsService);
+    
   });
 
   it('should be created', () => {
-    const service: FlightsService = TestBed.get(FlightsService);
     expect(service).toBeTruthy();
   });
 });
